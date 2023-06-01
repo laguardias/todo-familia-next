@@ -14,9 +14,9 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import { toast } from "react-hot-toast"
-import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
 import { FormEventHandler, useState } from "react";
+import { useRouter } from "next/navigation";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
@@ -26,11 +26,12 @@ function Cadastro() {
   const [sexo, setSexo] = useState("");
   const [cor, setCor] = useState("");
   const [idade, setIdade] = useState("");
+  const router = useRouter();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await axios
-      .post("/api/register", {
+    try {
+      await axios.post("/api/register", {
         nome,
         sobrenome,
         email,
@@ -38,9 +39,12 @@ function Cadastro() {
         sexo,
         cor,
         idade,
-      })
-      .then(() => toast.success("User has been registered"))
-      .catch(() => toast.error("An error occurred!"));
+      });
+      toast.success("Usuário registrado! Faça Login.");
+      router.push("/login");
+    } catch (error) {
+      toast.error("Um erro aconteceu. Tente novamente!");
+    }
   };
 
   return (
@@ -120,7 +124,8 @@ function Cadastro() {
           </div>
           {/*           <div>
             <Label htmlFor="sexo">Selecione seu Sexo</Label>
-            <Select onValueChange={(e) => setSexo(e.target.value)} defaultValue={''}>
+            <Select onValueChange={(e) => setSexo(e.target.value)}>
+              
               <SelectTrigger className="w-[245px]">
                 <SelectValue placeholder="Sexo" />
               </SelectTrigger>

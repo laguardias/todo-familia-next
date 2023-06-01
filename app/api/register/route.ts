@@ -6,7 +6,7 @@ export async function POST(request){
   const body = await request.json();
   const {nome, sobrenome, email, senha, sexo, cor, idade} = body;
 
-  if(!email || !senha){
+  if(!nome || !sobrenome || !email || !senha || !sexo || !cor || !idade){
     return new NextResponse('Missing Fields', {status: 400})
   }
 
@@ -17,7 +17,7 @@ export async function POST(request){
   })
 
   if(exist) {
-    throw new Error('Email already exists')
+    throw new Error('Email já existente no banco de dados')
   }
 
   const hashedPassword = await bcrypt.hash(senha, 10);

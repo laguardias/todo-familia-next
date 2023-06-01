@@ -30,8 +30,7 @@ function Header() {
               <DialogHeader>
                 <DialogTitle>Como utilizar este WebApp</DialogTitle>
                 <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
+                  Descrever o funcionamento do APP quando estiver pronto.
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
@@ -48,9 +47,14 @@ function Header() {
           )}
 
           {session && (
-            <Link className={styles.link} href="#" onClick={() => signOut()}>
-              Logout
-            </Link>
+            <>
+              <Link className={styles.link} href="/tarefas" onClick={() => signOut()}>
+                Tarefas
+              </Link>
+              <Link className={styles.link} href="#" onClick={() => signOut()}>
+                Logout
+              </Link>
+            </>
           )}
         </div>
       </div>

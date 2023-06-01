@@ -7,30 +7,35 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import {signIn} from 'next-auth/react';
 import { toast } from "react-hot-toast";
+import { FormEventHandler } from "react";
+import { useRouter } from "next/navigation";
 
 function Login() {
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const router = useRouter();
 
-  const loginUser = async(e) => {
-    e.preventDefault()
-    signIn('credentials', {
-      email: email,
-      password: senha,
-      redirect: false,
-    })
-    .then((callback) => {
-      if(callback?.error){
-        toast.error(callback.error)
+  const loginUser: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const result = await signIn("credentials", {
+        email: email,
+        password: senha,
+        redirect: false,
+      });
+  
+      if (result?.error) {
+        toast.error(result.error);
+      } else {
+        toast.success("Login realizado com sucesso!");
+        router.push("/tarefas");
       }
-
-      if(callback?.ok && !callback?.error){
-        toast.success('Logged in successfully8!')
-      }
-
-    } )
-  }
+    } catch (error) {
+      toast.error("Um erro aconteceu.");
+    }
+  };
 
   return (
     <div className={styles.container1}>
