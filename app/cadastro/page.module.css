@@ -7,36 +7,23 @@
   width: 800px;
   border-radius: 8px;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
-  background: white;
-  padding: 15px 25px 15px 25px;
-}
-.instructions {
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
-.instructions .h2 {
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.2rem;
-  padding-top: 25px;
-}
-.instructions .h1 {
+.title{
+  font-size: 1.6rem;
+  padding-top: 20px;
+  padding-bottom: 10px;
   color: rgb(0, 81, 255);
-  font-size: 1.3rem;
-  font-weight: bolder;
 }
-
-.paragraph{
-  text-align: justify;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.li {
-  margin: 10px;
-}
-.li::marker{
-  color: rgb(0, 17, 255);
+.cadastrar{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 /*=============== MEDIA QUERIES FOR SMARTPHONES ============== */
