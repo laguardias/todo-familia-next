@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/dialog";
 import { useSession, signOut } from "next-auth/react";
 
-
 function Header({currentUser}) {
   const { data: session } = useSession();
   console.log(currentUser)
