@@ -12,8 +12,10 @@ import {
 } from "@/components/ui/dialog";
 import { useSession, signOut } from "next-auth/react";
 
-function Header() {
+
+function Header({currentUser}) {
   const { data: session } = useSession();
+  console.log(currentUser)
 
   return (
     <div className={styles.container1}>
@@ -25,7 +27,7 @@ function Header() {
             Home
           </Link>
           <Dialog>
-            <DialogTrigger>Ajuda</DialogTrigger>
+            <DialogTrigger className={styles.link}>Ajuda</DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Como utilizar este WebApp</DialogTitle>
@@ -48,10 +50,10 @@ function Header() {
 
           {session && (
             <>
-              <Link className={styles.link} href="/tarefas" onClick={() => signOut()}>
+              <Link className={styles.link} href="/tarefas">
                 Tarefas
               </Link>
-              <Link className={styles.link} href="#" onClick={() => signOut()}>
+              <Link className={styles.link} href="#" onClick={() => signOut({ callbackUrl: "/" })}>
                 Logout
               </Link>
             </>

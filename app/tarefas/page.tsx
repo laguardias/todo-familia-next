@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 
 function Tarefas() {
+  
   const { data: session } = useSession();
-  console.log(session);
 
   return (
     <div className={styles.container1}>

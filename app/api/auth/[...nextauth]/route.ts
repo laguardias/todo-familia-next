@@ -8,7 +8,7 @@ export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
-      //register new user
+      //Login user in /api/auth/signin
       name: "credentials",
       credentials: {
         email: {
@@ -18,7 +18,7 @@ export const authOptions = {
         },
         password: { label: "Password", type: "password" },
       },
-      //Login user
+      //authentication and authorization of credentials
       async authorize(credentials) {
         try {
           // check to see if email and password are provided
@@ -50,6 +50,7 @@ export const authOptions = {
           }
 
           return user;
+
         } catch (error) {
           throw new Error(error.message);
         }
@@ -65,3 +66,4 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
+export default NextAuth(authOptions);
