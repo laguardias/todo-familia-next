@@ -21,7 +21,8 @@ function Header({currentUser}) {
     <div className={styles.container1}>
       <div className={styles.container2}>
         <h2 className={styles.title}>Lista de tarefas da </h2>
-        <h1 className={styles.family}>sua Família</h1>
+        {currentUser ? <h1 className={styles.family}>Família {currentUser.sobrenome}</h1>
+        : <h1 className={styles.family}>sua Família</h1>}
         <div className={styles.links}>
           <Link className={styles.link} href="/">
             Home

@@ -29,6 +29,7 @@ function Login() {
       if (result?.error) {
         toast.error(result.error);
       } else {
+        router.refresh();
         toast.success("Login realizado com sucesso!");
         router.push("/tarefas");
       }
