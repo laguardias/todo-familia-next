@@ -1,6 +1,10 @@
+import getUsers from "./actions/getUsers";
 import styles from "./page.module.css";
 
 export default async function Home() {
+
+  const users = await getUsers();
+  const lastThreeUsers = users.slice(-5).reverse();
 
   return (
     <div className={styles.container1}>
@@ -29,6 +33,14 @@ export default async function Home() {
               Abandone os recadinhos na geladeira ou lista de compras no papel!
             </li>
           </ul>
+          <div>
+            <h2 className={styles.familias}>Últimas 5 Famílias cadastradas:</h2>
+            {lastThreeUsers.map((user) => (
+              <div key={user.id}>
+                <p className={styles.familia}><span>🌞</span>{user.sobrenome}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
