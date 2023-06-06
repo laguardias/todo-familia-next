@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
-import Provider from "@/context/AuthContext";
+import AuthContext from "@/context/AuthContext";
 import ToasterContext from "@/context/ToasterContext";
 import getCurrentUser from "./actions/getCurrentUser";
 
@@ -23,12 +23,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Provider>
+        <AuthContext>
           <ToasterContext />
           <Header currentUser={currentUser} />
             {children}
           <Footer />
-        </Provider>
+        </AuthContext>
       </body>
     </html>
   );

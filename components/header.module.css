@@ -40,4 +40,10 @@
     font-size: 1.1rem;
     gap: 15px;
   }
+  .title{
+    font-size: 1.2rem;
+  }
+  .family{
+    font-size: 1.6rem;
+  }
 }
