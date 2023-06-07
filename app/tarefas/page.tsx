@@ -15,7 +15,7 @@ function Tarefas() {
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/tarefas", tarefa);
+      await axios.post("/api/tarefas", {Post: tarefa});
       toast.success("Registrado!");
     } catch (error) {
       toast.error(`Um erro aconteceu. Tente novamente!${error}`);
@@ -27,13 +27,13 @@ function Tarefas() {
       <div className={styles.container2}>
         <h1 className={styles.title}>Tarefas da Família</h1>
         <form className={styles.inputContainer} onSubmit={onSubmit}>
-          <Input 
+          <input 
             type="text" 
             placeholder="Escreva algo a ser feito" 
             value={tarefa}
             onChange={(e) => setTarefa(e.target.value)}
             />
-          <div><Button onClick={onSubmit}>Adicionar</Button></div>
+          <div><button onClick={onSubmit}>Adicionar</button></div>
         </form>
         <div className={styles.tarefasContainer}>
 
