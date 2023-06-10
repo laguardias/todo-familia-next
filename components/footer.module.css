@@ -1,0 +1,22 @@
+.container1{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+.container2{
+  width: 800px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+/*=============== MEDIA QUERIES FOR SMARTPHONES ============== */
+@media screen and (max-width: 600px){
+  .container2 {
+    width: 90vw;
+  }
+}

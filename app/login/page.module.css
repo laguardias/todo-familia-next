@@ -1,0 +1,34 @@
+.container1{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+.container2{
+  width: 800px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title{
+  font-size: 1.6rem;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  color: rgb(0, 81, 255);
+}
+.login{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+/*=============== MEDIA QUERIES FOR SMARTPHONES ============== */
+@media screen and (max-width: 600px){
+  .container2 {
+    width: 90vw;
+  }
+}
