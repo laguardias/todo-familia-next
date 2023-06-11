@@ -5,9 +5,12 @@ import { NextResponse } from "next/server";
 
 import prisma from "@/lib/prismadb";
 
-export async function POST(
+export const POST = async(
   request: Request,
-) {
+) => {
+  
+  const {body, author} = await request.json();
+
   try {
 /*     const currentUser = await getCurrentUser();
 
@@ -15,13 +18,11 @@ export async function POST(
         return new NextResponse('Unauthorized', { status: 400 });
       } */
     
-      const {body, author} = await request.json();
-      console.log(request)
     
       const newTodo = await prisma.todo.create({
         data: {
             body,
-            author,
+            author
         },
       });
 
