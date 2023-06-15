@@ -1,4 +1,7 @@
-"use client";
+'use client'
+
+import { useRef } from 'react'
+import { createTodo } from '@/app/actions/createTodo'
 
 import styles from "./page.module.css";
 import { toast } from "react-hot-toast";
@@ -7,17 +10,16 @@ import { FormEventHandler, useEffect, useState } from "react";
 import getTodos from "../actions/getTodos";
 
 function Tarefas({ todos }) {
-  const [tarefa, setTarefa] = useState("");
 
-  const onSubmit: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("/api/tarefas", { Post: tarefa });
-      toast.success("Registrado!");
-    } catch (error) {
-      toast.error(`Um erro aconteceu. Tente novamente!${error}`);
-    }
-  };
+  const formRef = useRef<HTMLFormElement>(null)
+
+  async function action(data: FormData) {
+    const title = data.get('title')
+    if (typeof title !== 'string' || !title) return
+
+    await createTodo(title)
+    formRef.current?.reset()
+  }
 
   // Como faria o onSubmit?
   // Criaria uma action na pasta actions chamada createTodo
@@ -37,20 +39,19 @@ function Tarefas({ todos }) {
    */
   return (
     <>
-      <form className={styles.inputContainer} onSubmit={onSubmit}>
+      <form className={styles.inputContainer} ref={formRef} action={action}>
         <input
           type="text"
           placeholder="Escreva algo a ser feito"
-          value={tarefa}
-          onChange={(e) => setTarefa(e.target.value)}
+          name="title"
         />
-        <div>
-          <button onClick={onSubmit}>Adicionar</button>
+        <div className={styles.buttonDiv}>
+          <button type="submit">Adicionar</button>
         </div>
       </form>
       <div className={styles.tarefasContainer}>
         {todos.length === 0 ? (
-          <div>Não existem todos</div>
+          <div>Não existem tarefas a serem feitas!</div>
         ) : (
           todos.map((todo) => <div key={todo.id}>Todo id: {todo.id}</div>)
         )}

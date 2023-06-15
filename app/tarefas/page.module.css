@@ -21,6 +21,8 @@
 }
 .inputContainer{
   display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 .tarefasContainer{
   height: 58vh;
@@ -31,6 +33,10 @@
   overflow: scroll;
   overflow-x: hidden;
   border-radius: 9px;
+}
+.buttonDiv{
+  width: 100px;
+  height: 50px;
 }
 
 /*=============== MEDIA QUERIES FOR SMARTPHONES ============== */

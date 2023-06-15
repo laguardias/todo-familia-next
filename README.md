@@ -1,10 +1,12 @@
 Plans:
 
-1- Make route to make todo;
+1- Make action "createTodo" to make todo with userId from current logged user;
 
-2- Make route to delete todo;
+2- Verify action "getTodos" to see if it's working properly;
 
-3- Make route to edit todo;
+2- Make action to delete todo;
+
+3- Make action to edit todo;
 
 4- Improve the Schemas for users to share todos with other users;
 

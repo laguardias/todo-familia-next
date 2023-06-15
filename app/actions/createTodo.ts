@@ -1,32 +1,26 @@
-/** Transformar o onSubmit da pagina tarefas para uma server action aqui neste arquivo e impoortar pra la */
+"use server";
 
-import getCurrentUser from "./getCurrentUser";
-import { NextResponse } from "next/server";
-
+import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prismadb";
+import getCurrentUser from "./getCurrentUser";
 
-export async function POST(
-  request: Request,
-) {
+export async function createTodo(title: string) {
   try {
-/*     const currentUser = await getCurrentUser();
+    const currentUser = await getCurrentUser();
 
-    if (!currentUser?.id || !currentUser?.email) {
-        return new NextResponse('Unauthorized', { status: 400 });
-      } */
-    
-      const {body, author} = await request.json();
-    
-      const newTodo = await prisma.todo.create({
-        data: {
-            body,
-            author,
+    const todo = await prisma.todo.create({
+      data: {
+        body: title,
+        author: {
+          connect: {
+            id: currentUser?.id,
+          },
         },
-      });
-
-
-    return NextResponse.json(newTodo)
+      },
+    });
+    revalidatePath("/");
+    return { todo };
   } catch (error) {
-    return new NextResponse('Internal Error', { status: 500 });
+    return { error };
   }
 }

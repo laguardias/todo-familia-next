@@ -14,8 +14,6 @@ import { useSession, signOut } from "next-auth/react";
 
 function Header({currentUser}) {
 
-  console.log(currentUser)
-
   return (
     <div className={styles.container1}>
       <div className={styles.container2}>
