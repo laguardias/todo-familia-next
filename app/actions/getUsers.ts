@@ -1,7 +1,8 @@
+"use server";
+
 import prisma from "@/lib/prismadb";
 
 const getUsers = async () => {
-
   try {
     const users = await prisma.user.findMany();
 

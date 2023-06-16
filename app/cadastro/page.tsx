@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "./page.module.css";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -48,142 +47,86 @@ function Cadastro() {
   };
 
   return (
-    <div className={styles.container1}>
-      <div className={styles.container2}>
-        <h1 className={styles.title}>Cadastro</h1>
-        <form className={styles.form} onSubmit={onSubmit}>
-          <div>
-            <Label htmlFor="name">Seu primeiro nome</Label>
-            <Input
-              onChange={(e) => setNome(e.target.value)}
-              value={nome}
-              type="nome"
-              id="nome"
-              placeholder="Nome"
-            />
-          </div>
-          <div>
-            <Label htmlFor="sobrenome">Nome da sua Família</Label>
-            <Input
-              onChange={(e) => setSobrenome(e.target.value)}
-              value={sobrenome}
-              type="sobrenome"
-              id="sobrenome"
-              placeholder="Sobrenome"
-            />
-          </div>
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              type="email"
-              id="email"
-              placeholder="Email"
-            />
-          </div>
-          <div>
-            <Label htmlFor="senha">Senha</Label>
-            <Input
-              onChange={(e) => setSenha(e.target.value)}
-              value={senha}
-              type="password"
-              id="senha"
-              placeholder="Senha"
-            />
-          </div>
-          <div>
-            <Label htmlFor="sexo">Sexo</Label>
-            <Input
-              onChange={(e) => setSexo(e.target.value)}
-              value={sexo}
-              type="sexo"
-              id="sexo"
-              placeholder="sexo"
-            />
-          </div>
-          <div>
-            <Label htmlFor="cor">cor</Label>
-            <Input
-              onChange={(e) => setCor(e.target.value)}
-              value={cor}
-              type="cor"
-              id="cor"
-              placeholder="cor"
-            />
-          </div>
-          <div>
-            <Label htmlFor="idade">idade</Label>
-            <Input
-              onChange={(e) => setIdade(e.target.value)}
-              value={idade}
-              type="idade"
-              id="idade"
-              placeholder="idade"
-            />
-          </div>
-          {/*           <div>
-            <Label htmlFor="sexo">Selecione seu Sexo</Label>
-            <Select onValueChange={(e) => setSexo(e.target.value)}>
-              
-              <SelectTrigger className="w-[245px]">
-                <SelectValue placeholder="Sexo" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Selecione seu sexo</SelectLabel>
-                  <SelectItem value={'masculino'}>
-                    Masculino
-                  </SelectItem>
-                  <SelectItem value={'feminino'}>
-                    Feminino
-                  </SelectItem>
-                  <SelectItem value={'sem-resposta'}>
-                    Não Responder
-                  </SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
-            <Label htmlFor="cor">Selecione uma Cor</Label>
-            <Select>
-              <SelectTrigger className="w-[245px]">
-                <SelectValue placeholder="Cor" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Selecione uma Cor</SelectLabel>
-                  <SelectItem value="azul">Azul</SelectItem>
-                  <SelectItem value="verde">Verde</SelectItem>
-                  <SelectItem value="preto">Preto</SelectItem>
-                  <SelectItem value="rosa">Rosa</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
-            <Label htmlFor="idade">Selecione uma Faixa Etária</Label>
-            <Select>
-              <SelectTrigger className="w-[245px]">
-                <SelectValue placeholder="Idade" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Selecione uma Faixa Etária</SelectLabel>
-                  <SelectItem value="idade-a">0 a 20 anos</SelectItem>
-                  <SelectItem value="idade-b">21 a 30 anos</SelectItem>
-                  <SelectItem value="idade-c">31 a 50 anos</SelectItem>
-                  <SelectItem value="idade-d">51 ou mais anos</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div> */}
-          <div className={styles.cadastrar}>
-            <Button onClick={onSubmit}>Cadastrar</Button>
-          </div>
-        </form>
-      </div>
+    <div className="w-full h-full flex flex-col justify-center items-center gap-4">
+      <h1 className="pt-20 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Cadastro
+      </h1>
+      <form className="flex flex-col justify-center gap-4" onSubmit={onSubmit}>
+        <div>
+          <Label htmlFor="name">Seu primeiro nome</Label>
+          <Input
+            onChange={(e) => setNome(e.target.value)}
+            value={nome}
+            type="nome"
+            id="nome"
+            placeholder="Nome"
+          />
+        </div>
+        <div>
+          <Label htmlFor="sobrenome">Nome da sua Família</Label>
+          <Input
+            onChange={(e) => setSobrenome(e.target.value)}
+            value={sobrenome}
+            type="sobrenome"
+            id="sobrenome"
+            placeholder="Sobrenome"
+          />
+        </div>
+        <div>
+          <Label htmlFor="email">Email</Label>
+          <Input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            type="email"
+            id="email"
+            placeholder="Email"
+          />
+        </div>
+        <div>
+          <Label htmlFor="senha">Senha</Label>
+          <Input
+            onChange={(e) => setSenha(e.target.value)}
+            value={senha}
+            type="password"
+            id="senha"
+            placeholder="Senha"
+          />
+        </div>
+        <div>
+          <Label htmlFor="sexo">Sexo</Label>
+          <Input
+            onChange={(e) => setSexo(e.target.value)}
+            value={sexo}
+            type="sexo"
+            id="sexo"
+            placeholder="sexo"
+          />
+        </div>
+        <div>
+          <Label htmlFor="cor">cor</Label>
+          <Input
+            onChange={(e) => setCor(e.target.value)}
+            value={cor}
+            type="cor"
+            id="cor"
+            placeholder="cor"
+          />
+        </div>
+        <div>
+          <Label htmlFor="idade">idade</Label>
+          <Input
+            onChange={(e) => setIdade(e.target.value)}
+            value={idade}
+            type="idade"
+            id="idade"
+            placeholder="idade"
+          />
+        </div>
+
+        <div className="flex justify-center pt-4">
+          <Button onClick={onSubmit}>Cadastrar</Button>
+        </div>
+      </form>
     </div>
   );
 }

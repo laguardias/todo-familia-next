@@ -20,7 +20,7 @@ export function MainNav() {
         </span>
       </Link>
       <nav className="flex items-center space-x-6 text-sm font-medium">
-        <Link
+        {/* <Link
           href="/docs"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -28,8 +28,8 @@ export function MainNav() {
           )}
         >
           Documentation
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           href="/docs/components"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -39,8 +39,8 @@ export function MainNav() {
           )}
         >
           Components
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           href="/examples"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -50,15 +50,15 @@ export function MainNav() {
           )}
         >
           Examples
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           href={siteConfig.links.github}
           className={cn(
             "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"
           )}
         >
           GitHub
-        </Link>
+        </Link> */}
       </nav>
     </div>
   );
