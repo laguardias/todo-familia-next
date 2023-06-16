@@ -16,9 +16,11 @@ const getTodos = async () => {
       return null;
     }
 
-    const todos = await prisma.post.findMany({
+    console.log("getTodos functions / currentUserId:", currentUser.id);
+
+    const todos = await prisma.todo.findMany({
       where: {
-        id: currentUser?.id,
+        authorId: currentUser?.id,
       },
     })
   
