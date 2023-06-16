@@ -1,4 +1,4 @@
-import NextAuth, { AuthOptions } from "next-auth"
+import NextAuth, { AuthOptions } from "next-auth";
 import prisma from "@/lib/prismadb";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -20,40 +20,35 @@ export const authOptions: AuthOptions = {
       },
       //authentication and authorization of credentials
       async authorize(credentials) {
-        try {
-          // check to see if email and password are provided
-          if (!credentials.email || !credentials.password) {
-            throw new Error("Please enter an email and password");
-          }
-
-          // check to see if user exists
-          const user = await prisma.user.findUnique({
-            where: {
-              email: credentials.email,
-            },
-          });
-
-          // if no user was found
-          if (!user || !user?.hashedPassword) {
-            throw new Error("Usuário não encontrado");
-          }
-
-          // check to see if password matches
-          const passwordMatch = await bcrypt.compare(
-            credentials.password,
-            user.hashedPassword
-          );
-
-          // if password does not match
-          if (!passwordMatch) {
-            throw new Error("Senha incorreta");
-          }
-
-          return user;
-
-        } catch (error) {
-          throw new Error(error.message);
+        // check to see if email and password are provided
+        if (!credentials || !credentials.email || !credentials.password) {
+          throw new Error("Please enter an email and password");
         }
+
+        // check to see if user exists
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+        });
+
+        // if no user was found
+        if (!user || !user?.hashedPassword) {
+          throw new Error("Usuário não encontrado");
+        }
+
+        // check to see if password matches
+        const passwordMatch = await bcrypt.compare(
+          credentials.password,
+          user.hashedPassword
+        );
+
+        // if password does not match
+        if (!passwordMatch) {
+          throw new Error("Senha incorreta");
+        }
+
+        return user;
       },
     }),
   ],
