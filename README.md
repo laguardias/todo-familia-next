@@ -1,21 +1,26 @@
 <h1>Plans:</h1>
-1- Make action to delete todo;
-2- Make action to edit todo;
-3- Improve the Schemas for users to share todos with other users;
-4- Implement the share todos system;
+<ol>
+    <li>Make action to delete todo;</li>
+    <li>Make action to edit todo;</li>
+    <li>Improve the Schemas for users to share todos with other users;</li>
+    <li>Implement the share todos system;</li>
+</ol>
+
 
 <h2>Shadcn:</h2> 
-1- I still haven't been able to use the shadcn select;
-2- Input from shadcn doesn't get the required property;
-3- Still about shadcn: can you have several buttons with different colors or just primary and secondary, etc?
+<ol>
+    <li>I still haven't been able to use the shadcn select;</li>
+    <li>Input from shadcn doesn't get the required property;</li>
+    <li>Can you have several buttons with different colors or just primary and secondary, etc?</li>
+</ol>
 
 <h2>Draw tool:</h2>
 https://excalidraw.com/#room=00ed76ff236ee175bb81,X4mf4VxROAe08s99PQkUAw
 
 <h2>Prisma commands:</h2>
-npm i -D prisma
-npm i @prisma/client
-npx prisma init
-npx prisma generate
-npx prisma db push
-npx prisma studio
+<p>npm i -D prisma</p>
+<p>npm i @prisma/client</p>
+<p>npx prisma init</p>
+<p>npx prisma generate</p>
+<p>npx prisma db push</p>
+<p>npx prisma studio</p>
